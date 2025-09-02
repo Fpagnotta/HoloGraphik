@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/argentum-sans" rel="stylesheet"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/diseño.css">
+    <title>Holographik I Fabrica de stickers premium</title>
+    <link rel="icon" href="../images/favicon_Mesa de trabajo 1.png" type="image/x-icon">
+    <style>
+      
+      .hidden {
+        visibility: hidden;
+      }
+  
+      #resultados {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+  
+      #envioDisclaimer {
+        margin-top: 10px;
+        font-size: smaller;
+        color: black;
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: space-around;
+      }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark  fixed-top navi ">
+          <div class="container-fluid">
+              <a href="../index.html"><img src="../images/HG Fondo Gris JPG_Mesa de trabajo 1.jpg" alt="Logo" width="170" height="90" class="d-inline-block align-text-top logo "></a>
+              <button class="navbar-toggler btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+              <span class="navbar-toggler-icon btn btn-dark"></span>
+            </button>
+            <div class="offcanvas offcanvas-end navi " tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+              <div class="offcanvas-header">
+                  <button type="button" class="btn-close btn-close-white " data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <a class="nav-link fontlinks " aria-current="page" href="../pages/materiales.html">MATERIALES</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link fontlinks" href="../pages/cotizador.html">COTIZADOR</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link fontlinks" href="../pages/contacto.html">CONTACTO</a>
+                    </li>
+                </ul>
+                
+              </div>
+              <img src="../images/HOLOGRAPHIK Fondo gris_Mesa de trabajo 1.jpg" alt="Logo" style="width: 50%;position: absolute; right: 0; bottom: 0;">
+            </div>
+          </div>
+        </nav>
+    </header>
+    <div class="container mt-5">
+      <h2>Cotizador de productos</h2>
+  
+      <table class="table table-hover">
+          <thead>
+              <tr>
+                  <th>Producto</th>
+                  <th>Medidas</th>
+                  <th>Cantidad</th>
+                  <th>Precio por cantidad</th>
+                  <th><button class="btn btn-dark" onclick="actualizarPrecios(event)">Calcular</button></th>
+                  
+              </tr>
+          </thead>
+          <tbody class="table-group-divider">
+              <tr>
+                  <td>
+                      <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="productoSeleccionadoListaPrecios">
+                          <option value="">Seleccione el producto</option>
+                          <option value="Stickers Individuales -Vinilos Clasicos">Stickers Individuales -Vinilos Clasicos</option>
+                          <option value="Stickers Individuales -Vinilos Especiales">Stickers Individuales -Vinilos Especiales</option>
+                          <option value="Stickers Individuales -Imanes">Stickers Individuales -Imanes</option>
+                          <option value="Stickers Individuales -Glow In The Dark">Stickers Individuales -Glow In The Dark</option>
+                          <option value="Planchas Troqueladas -Glow In The Dark">Planchas Troqueladas -Glow In The Dark</option>
+                          <option value="Planchas Troqueladas -Vinilos Clasicos">Planchas Troqueladas -Vinilos Clasicos</option>
+                          <option value="Planchas Troqueladas -Vinilos Especiales">Planchas Troqueladas -Vinilos Especiales</option>
+                      </select>
+                  </td> 
+                  <td>
+                      <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="medidasLista" >
+                          <option value="">Seleccione una medida</option>
+                          <option value='5x5'>5x5</option>
+                          <option value='6x6'>6x6</option>
+                          <option value="7x7">7x7</option>
+                          <option value="8x8">8x8</option>
+                          <option value="9x9">9x9</option>
+                          <option value="10x15">10x15</option>
+                          <option value="12x18">12x18</option>
+                          <option value="20x15">20x15</option>
+                      </select>
+                  </td>
+                  <td>
+                      <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="cantidadLista">
+                          <option value="">Seleccione una cantidad</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
+                          <option value="200">200</option>
+                          <option value="300">300</option>
+                          <option value="400">400</option>
+                          <option value="500">500</option>
+                          <option value="600">600</option>
+                      </select>
+                  </td>
+                      <td id="precioStickerLista"></td>
+              </tr>
+          
+              </tbody>
+      </table>
+      </div>    
+
+<div class="container mt-5">
+  <h2>Confirma tu pedido</h2>
+
+  <h4>Seleccione el producto:</h4>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-outline-dark btn-sm" onclick="seleccionarProducto('Sticker Individuales')">Sticker Individuales</button>
+    <button type="button" class="btn btn-outline-dark btn-sm" onclick="seleccionarProducto('Planchas Troqueladas')">Planchas Troqueladas</button>
+    <button type="button" class="btn btn-outline-dark btn-sm" onclick="seleccionarProducto('Imanes')">Imanes</button>
+  </div>
+
+  <form id="cotizadorForm" class="mt-4 text-center">
+    <!-- Resto del formulario permanece igual -->
+  
+    <div id="vinilosClasicosBtn" class="mt-3 hidden">
+      <h4>Seleccione el tipo de vinilo</h4>
+      <button type="button" class="btn btn-outline-dark btn-sm" onclick="mostrarOpcionesVinilos('vinilosClasicos')">Vinilos Clásicos</button>
+    </div>
+    <div id="vinilosEspecialesBtn" class="mt-3 hidden">
+      <button type="button" class="btn btn-outline-dark btn-sm" onclick="mostrarOpcionesVinilos('vinilosEspeciales')">Vinilos Especiales</button>
+    </div>
+  
+<!-- Lista de selección para Vinilos Clásicos -->
+<div id="vinilosClasicosSelect" class="form-group mt-3 hidden">
+<h4>Seleccione el material</h4>
+  <select id="vinilosClasicos" class="form-select form-select-sm" aria-label=".form-select-sm example"  onchange="mostrarCampoMedidas()">
+    <option value="ElijaOpcion1">Elija una opcion</option>
+    <option value="blancoBrillante">Blanco Brillante</option>
+    <option value="blancoMate">Blanco Mate</option>
+    <option value="transparente">Transparente</option>
+  </select>
+</div>
+
+<!-- Lista de selección para Vinilos Especiales -->
+<div id="vinilosEspecialesSelect" class="form-group mt-3 hidden">
+  <h4>Seleccione el material</h4>
+  <select id="vinilosEspeciales" class="form-select form-select-sm" onchange="mostrarCampoMedidas()">
+    <option value="ElijaOpcion2">Elija una opcion</option>
+    <option value="holografico">Holográfico</option>
+    <option value="holograficoGlitter">Holográfico Glitter</option>
+    <option value="holograficoIce">Holográfico Ice</option>
+    <option value="holografico3D">Holográfico 3D</option>
+    <option value="doradoMetalizado">Dorado Metalizado</option>
+    <option value="glowInTheDark">Glow In The Dark</option>
+    <option value="frostedRose">Frosted Rose</option>
+    <!-- Agrega más opciones según sea necesario -->
+  </select>
+</div>
+
+<div id="campoMedidas" class="form-group mt-3 hidden">
+  <h4>Seleccione las medidas</h4>
+  <select id="medidas" class="form-select form-select-sm" onchange="mostrarCampoCantidad()"></select>
+</div>
+
+<div id="campoCantidad" class="form-group mt-3 hidden">
+  <h4>Seleccione la Cantidad:</h4>
+  <select id="cantidad" class="form-select form-select-sm" onchange="mostrarCampoEnvio()">
+    <option value="ElijaOpcion3">Elija una opcion</option>
+    <option value="50">x50</option>
+    <option value="100">x100</option>
+    <option value="200">x200</option>
+    <option value="300">x300</option>
+    <option value="400">x400</option>
+    <option value="500">x500</option>
+    <option value="600">x600</option>
+    <!-- Puedes agregar más opciones según sea necesario -->
+  </select>
+</div>
+
+<div id="campoEnvio" class="form-group mt-3 hidden">
+  <h4>¿Necesita que se lo enviemos?</h4>
+  <input type="checkbox" id="envioCheckbox"> Sí, Acordaré con el vendedor
+
+  <!-- Nuevo bloque para el textarea -->
+  <div class="form-group mt-3">
+    <label for="resumenPedido">Resumen del Pedido:</label>
+    <textarea id="resumenPedido" class="form-control" rows="5" readonly></textarea>
+  </div>
+
+  <!-- Botón "Finalizar Pedido" -->
+  <button type="button" class="btn btn-success mt-3" onclick="finalizarPedido()">Finalizar Pedido</button>
+</div>
+
+
+<br><br>
+  <button type="button" class="btn btn-outline-dark mt-3" onclick="reiniciarPedido()">Reiniciar Pedido</button>
+
+</form>  
+
+
+  <div id="resultados" class="hidden">
+        <!-- Aquí mostrarás los resultados de la cotización -->
+  </div>
+  <img src="../images/materiales.jpg" class="logo desktop-image">
+  <img src="../images/MATERIALES P CELUILAR_Mesa de trabajo 1.png" class="mobile-image" alt="Vinyl Materials Mobile Image">
+  
+  <a href="../pages/contacto.html"><img src="../images/boton-te-olvidastepedido_Mesa de trabajo 1.jpg" class="logo" alt=""></a>
+</div>
+
+<footer class="footer mt-auto py-3" style="background-color: #CCCCCC;">
+  <div class="container" style="display: flex; justify-content: space-between;">
+    <div>
+      <span class="text" style="font-weight: bold;">Contacto</span><br>
+      <span class="text">Ventas@holographik.com.ar</span><br>
+      <span class="text">Email: Ventas@holographik.com.ar</span><br>
+      <span class="text">+59 9 11 7150 9021</span><br>
+      <span class="text">Concejal Sequeira 3487, Ituzaingo, Buenos Aires</span><br>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: flex-end;">
+      <a href="https://www.instagram.com/holo.graphik_/" target="_blank" style="margin-right: 0px;" ><img class="botonFooter" src="../images/instagram.png" alt="Instagram"></a>
+      <span class="text" style="margin-top: auto;">© 2024 HOLO GRAPHIK (R!). Todos los derechos reservados.</span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+<script>
+
+
+
+        let productoSeleccionado = ''; // Variable para almacenar el producto seleccionado
+        
+        
+        function seleccionarProducto(producto) {
+          // Restablecer la visibilidad de los botones y el formulario
+          document.getElementById('vinilosClasicosBtn').classList.add('hidden');
+          document.getElementById('vinilosEspecialesBtn').classList.add('hidden');
+          document.getElementById('cotizadorForm').classList.remove('hidden');
+        
+          // Almacenar el producto seleccionado
+          productoSeleccionado = producto;
+        
+          // Mostrar los botones específicos según el producto seleccionado
+          if (producto === 'Sticker Individuales' || producto === 'Etiquetas en Rollo' || producto === 'Planchas Troqueladas') {
+            document.getElementById('vinilosClasicosBtn').classList.remove('hidden');
+            document.getElementById('vinilosEspecialesBtn').classList.remove('hidden');
+          } else if (producto === 'Imanes') {
+            document.getElementById('vinilosClasicosBtn').classList.remove('hidden');
+          }
+        
+          // Puedes realizar más acciones específicas según el producto seleccionado
+          console.log('Producto seleccionado:', producto);
+        }
+        
+        
+          function mostrarOpcionesVinilos(tipoVinilo) {
+            // Restablecer la visibilidad de las listas de selección y el campo de medidas
+            document.getElementById('vinilosClasicosSelect').classList.add('hidden');
+            document.getElementById('vinilosEspecialesSelect').classList.add('hidden');
+            document.getElementById('campoMedidas').classList.add('hidden');
+        
+            // Mostrar la lista de selección correspondiente al tipo de vinilo seleccionado
+            if (tipoVinilo === 'vinilosClasicos') {
+              document.getElementById('vinilosClasicosSelect').classList.remove('hidden');
+            } else if (tipoVinilo === 'vinilosEspeciales') {
+              document.getElementById('vinilosEspecialesSelect').classList.remove('hidden');
+            }
+          }
+        
+        
+        
+        
+          function mostrarCampoMedidas() {
+            // Obtener el valor del tipo de vinilo seleccionado
+            const tipoViniloSelect = document.getElementById('vinilosClasicos');
+            const tipoVinilo = tipoViniloSelect.options[tipoViniloSelect.selectedIndex].text;
+        
+            // Limpiar las opciones existentes
+            const medidasSelect = document.getElementById('medidas');
+            medidasSelect.innerHTML = '';
+        
+            // Definir las medidas según el producto seleccionado
+            let medidas = [];
+        
+            if (tipoVinilo === 'Planchas Troqueladas') {
+              medidas = ['10x15 cm', '12x18 cm', '20x15 cm', '20x30 cm'];
+            } else {
+              // Agregar las medidas adicionales para Planchas Troqueladas
+              medidas = [
+                'Elija una opcion','5x5 cm', '6x6 cm', '7x7 cm', '8x8 cm', '9x9 cm',
+                '10x15 cm (OPCION VALIDA SOLO PARA PLANCHAS TROQUELADAS)',
+                '12x18 cm (OPCION VALIDA SOLO PARA PLANCHAS TROQUELADAS)',
+                '20x15 cm (OPCION VALIDA SOLO PARA PLANCHAS TROQUELADAS)',
+              ];
+            }
+        
+            // Agregar las nuevas opciones al select
+            medidas.forEach(medida => {
+              const option = document.createElement('option');
+              option.value = medida;
+              option.text = medida;
+              medidasSelect.add(option);
+            });
+        
+            // Mostrar el campo de medidas
+            document.getElementById('campoMedidas').classList.remove('hidden');
+            // Ocultar el campo de cantidad
+            document.getElementById('campoCantidad').classList.add('hidden');
+          }
+        
+          function mostrarCampoCantidad() {
+            // Mostrar el campo de cantidad
+            document.getElementById('campoCantidad').classList.remove('hidden');
+        
+        
+          }
+        
+          function mostrarCampoEnvio() {
+            // Mostrar el campo de envío cuando se selecciona una cantidad
+            document.getElementById('campoEnvio').classList.remove('hidden');
+          }
+        
+        
+        
+          function finalizarPedido() {
+            // Obtener los valores seleccionados
+            const tipoViniloClasico = document.getElementById('vinilosClasicos').value; // Ejemplo, ajusta según tu estructura
+            const tipoViniloEspecial = document.getElementById('vinilosEspeciales').value;
+            const medida = document.getElementById('medidas').value;
+            const cantidad = document.getElementById('cantidad').value;
+            const necesitaEnvio = document.getElementById('envioCheckbox').checked;
+
+
+            // Determinar el tipo de vinilo seleccionado
+            let tipoVinilo = '';
+
+                if (tipoViniloClasico !== 'ElijaOpcion1') {
+                tipoVinilo = `Vinilo Clásico: ${tipoViniloClasico}`;
+                } else if (tipoViniloEspecial !== 'ElijaOpcion2') {
+                tipoVinilo = `Vinilo Especial: ${tipoViniloEspecial}`;
+                }
+
+                // Construir el resumen del pedido
+            const resumenPedido = `Producto: ${productoSeleccionado}\n${tipoVinilo}\nMedida: ${medida}\nCantidad: ${cantidad}\nNecesita Envío: ${necesitaEnvio ? 'Sí' : 'No'}`;
+        
+           
+        
+            // Mostrar el resumen en el textarea
+            document.getElementById('resumenPedido').value = resumenPedido;
+        
+            // Redirigir a WhatsApp con el mensaje
+            const telefonoWhatsApp = '5491171509021'; // Reemplaza con el número de WhatsApp al que deseas enviar el mensaje
+            const mensajeWhatsApp = encodeURIComponent(`Hola HoloGraphik!, Necesito lo siguiente : \n\n${resumenPedido}`);
+            window.location.href = `whatsapp://send?phone=${telefonoWhatsApp}&text=${mensajeWhatsApp}`;
+          }
+        
+        
+        
+          function reiniciarPedido() {
+            // Restablecer campos y ocultar resultados
+            document.getElementById('vinilosClasicosBtn').classList.add('hidden');
+            document.getElementById('vinilosEspecialesBtn').classList.add('hidden');
+            document.getElementById('cotizadorForm').classList.remove('hidden');
+            document.getElementById('vinilosClasicosSelect').classList.add('hidden');
+            document.getElementById('vinilosEspecialesSelect').classList.add('hidden');
+            document.getElementById('campoMedidas').classList.add('hidden');
+            document.getElementById('campoCantidad').classList.add('hidden');
+            document.getElementById('campoEnvio').classList.add('hidden');
+            document.getElementById('resultados').classList.add('hidden');
+        
+            // Restablecer valores de los campos
+            document.getElementById('vinilosClasicos').selectedIndex = 0;
+            document.getElementById('medidas').innerHTML = '';
+            document.getElementById('cantidad').selectedIndex = 0;
+            document.getElementById('envioCheckbox').checked = false;
+            document.getElementById('resumenPedido').value = '';
+          }
+        
+        
+        
+          /** LISTA DE PRECIOS **/
+        
+        
+          const precios = {
+                'Stickers Individuales -Vinilos Clasicos': {
+                    '5x5': { '50': "$9.500", '100': "$12.500",'200' :"$27.950" ,'300':"$33.540",'400':"$41.925",'500':"$55.900", '600':"$76.865"},
+                    '6x6': { '50': "$9.950", '100': "$15.000",'200' :"$28.000" ,'300':"$41.925",'400':"$55.900",'500':"$69.875", '600':"$86.650"},
+                    '7x7': { '50': "$14.500", '100': "$23.500",'200' :"$40.530" ,'300':"$68.478",'400':"$75.465",'500':"$97.825", '600':"$117.390"},
+                    '8x8': { '50': "$17.900", '100': "$27.100",'200' :"$47.515" ,'300':"$69.875",'400':"$95.030",'500':"$117.390", '600':"$139.750"},
+                    '9x9': { '50': "$19.990", '100': "$27.950",'200' :"$55.900" ,'300':"$83.850",'400':"$111.800",'500':"$139.750", '600':"$167.700"},
+                },
+                'Stickers Individuales -Vinilos Especiales': {
+                    '5x5': { '50': "$9.999", '100': "$18.300",'200' :"$32.900" ,'300':"$49.900",'400':"$65.900",'500':"$82.900", '600':"$98.604"},
+                    '6x6': { '50': "$15.900", '100': "$24.900",'200' :"$49.800" ,'300':"$74.700",'400':"$99.600",'500':"$124.500", '600':"$149.400"},
+                    '7x7': { '50': "$19.900", '100': "$29.900",'200' :"$59.900" ,'300':"$89.640",'400':"$119.520",'500':"$149.400", '600':"$179.280"},
+                    '8x8': { '50': "$21.100", '100': "$39.840",'200' :"$77.190" ,'300':"$114.540",'400':"$151.890",'500':"$179.778", '600':"$215.260"},
+                    '9x9': { '50': "$24.900", '100': "$49.800",'200' :"$99.600" ,'300':"$149.400",'400':"$189.240",'500':"$224.100", '600':"$268.920"},
+                },
+                'Stickers Individuales -Imanes': {
+                    '5x5': { '50': "$16.500", '100': "$25.000",'200' :"$37.800" ,'300':"$56.700",'400':"$75.600",'500':"$94.500", '600':"$113.400"},
+                    '6x6': { '50': "$20.000", '100': "$31.500",'200' :"$63.000" ,'300':"$94.500",'400':"$126.000",'500':"$157.000", '600':"$189.000"},
+                    '7x7': { '50': "$25.000", '100': "$37.800",'200' :"$75.600" ,'300':"$113.400",'400':"$151.200",'500':"$189.000", '600':"$226.800"},
+                    '8x8': { '50': "$30.000", '100': "$50.400",'200' :"$97.650" ,'300':"$144.900",'400':"$192.150",'500':"$239.400", '600':"$286.650"},
+                    '9x9': { '50': "$31.500", '100': "$63.000",'200' :"$126.000" ,'300':"$189.000",'400':"$239.400",'500':"$283.500", '600':"$340.200"},
+                },
+                'Stickers Individuales -Glow In The Dark': {
+                    '5x5': { '50': "$16.500", '100': "$25.000",'200' :"$37.800" ,'300':"$56.700",'400':"$75.600",'500':"$94.500", '600':"$113.400"},
+                    '6x6': { '50': "$20.000", '100': "$31.500",'200' :"$63.000" ,'300':"$94.500",'400':"$126.000",'500':"$157.000", '600':"$189.000"},
+                    '7x7': { '50': "$25.000", '100': "$37.800",'200' :"$75.600" ,'300':"$113.400",'400':"$151.200",'500':"$189.000", '600':"$226.800"},
+                    '8x8': { '50': "$30.000", '100': "$50.400",'200' :"$97.650" ,'300':"$144.900",'400':"$192.150",'500':"$239.400", '600':"$286.650"},
+                    '9x9': { '50': "$31.500", '100': "$63.000",'200' :"$126.000" ,'300':"$189.000",'400':"$239.400",'500':"$283.500", '600':"$340.200"},
+                },
+                'Planchas Troqueladas -Vinilos Clasicos': {
+                    '10x15': { '50': "$31.500", '100': "$63.000",'200' :"$126.000" ,'300':"$189.000",'400':"$239.400",'500':"$299.250", '600':"$359.100"},
+                    '12x18': { '50': "$47.250", '100': "$94.500",'200' :"$189.000" ,'300':"$269.325",'400':"$359.100",'500':"$425.250", '600':"$510.300"},
+                    '20x15': { '50': "$53.600", '100': "$107.100",'200' :"$189.000" ,'300':"$269.325",'400':"$340.200",'500':"$425.250", '600':"$510.300"},
+                },
+                'Planchas Troqueladas -Vinilos Especiales': {
+                    '10x15': { '50': "$53.550", '100': "$107.100",'200' :"$214.200" ,'300':"$289.170",'400':"$385.560",'500':"$481.950", '600':"$578.340"},
+                    '12x18': { '50': "$78.750", '100': "$157.500",'200' :"$283.500" ,'300':"$425.250",'400':"$567.000",'500':"$669.375", '600':"$803.250"},
+                    '20x15': { '50': "$107.100", '100': "$214.200",'200' :"$385.560" ,'300':"$578.340",'400':"$728.280",'500':"$910.350", '600':"$1.028.160"},
+                },
+                'Planchas Troqueladas -Glow In The Dark': {
+                    '10x15': { '50': "$62.900", '100': "$125.800",'200' :"$251.600" ,'300':"$339.660",'400':"$452.880",'500':"$566.100", '600':"$679.320"},
+                    '12x18': { '50': "$92.500", '100': "$185.000",'200' :"$333.000" ,'300':"$499.500",'400':"$666.000",'500':"$832.500", '600':"$960.000"},
+                    '20x15': { '50': "$25.800", '100': "$251.600",'200' :"$452.880" ,'300':"$679.320",'400':"$870.400",'500':"$1.088.000", '600':"$1.183.200"},
+                },
+                // Agrega más productos según tus necesidades
+            };
+        
+        
+        
+ 
+        
+    function actualizarPrecios() {
+        event.preventDefault();
+    // Verificar si la lista de precios está definida
+    if (typeof precios !== 'undefined') {
+        // Obtener los valores seleccionados de los selects
+        var productoSeleccionado = document.getElementById("productoSeleccionadoListaPrecios").value;
+        var medidaSeleccionada = document.getElementById("medidasLista").value;
+        var cantidadSeleccionada = document.getElementById("cantidadLista").value;
+
+        // Verificar si se han seleccionado todas las opciones
+        if (productoSeleccionado && medidaSeleccionada && cantidadSeleccionada) {
+            // Verificar si el producto seleccionado existe en la lista de precios
+            if (precios[productoSeleccionado] && precios[productoSeleccionado][medidaSeleccionada]) {
+                // Buscar el precio en la lista de precios
+                var precio = precios[productoSeleccionado][medidaSeleccionada][cantidadSeleccionada];
+
+                // Mostrar el precio en la celda correspondiente
+                document.getElementById("precioStickerLista").innerHTML = "<b>Precio:</b> " + precio;
+            } else {
+                // Mostrar un mensaje de error si el producto o la medida no existen en la lista de precios
+                document.getElementById("precioStickerLista").innerHTML = "El producto y medida seleccionados no son compatibles";
+            }
+        } else {
+            // Mostrar un mensaje de error si no se han seleccionado todas las opciones
+            document.getElementById("precioStickerLista").innerHTML = "Por favor, seleccione todas las opciones";
+        }
+    } else {
+        // Mostrar un mensaje de error si la lista de precios no está definida
+        document.getElementById("precioStickerLista").innerHTML = "La lista de precios no está definida.";
+    }
+    return false;
+}
+          
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>

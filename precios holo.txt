@@ -1,0 +1,76 @@
+<!--Cantidades Stickers Individuales Vinilo NORMAL-->
+
+<div id="campoCantidadStickerIndividualesNormal5x5" class="form-group mt-3 hidden">
+  <h3>Seleccione la Cantidad:</h3>
+  <select id="cantidad5x5" class="form-select" onchange="mostrarCampoEnvio()">
+    <option value="opcion2">Elija una opcion</option>
+    <option value="50">50 pzs - 9.500$</option>
+    <option value="100">100 pzs - 12.500$</option>
+    <option value="200">200 pzs - 27.950$</option>
+    <option value="300">300 pzs - 33.540$</option>
+    <option value="400">400 pzs - 41.925$</option>
+    <option value="500">500 pzs - 55.900$ </option>
+    <option value="600">600 pzs - 76.865$</option>
+    <!-- Puedes agregar más opciones según sea necesario -->
+  </select>
+</div>
+
+<div id="campoCantidadStickerIndividualesNormal6x6" class="form-group mt-3 hidden">
+  <h3>Seleccione la Cantidad:</h3>
+  <select id="cantidad6x6" class="form-select" onchange="mostrarCampoEnvio()">
+    <option value="opcion2">Elija una opcion</option>
+    <option value="50">50 pzs - 9.950$</option>
+    <option value="100">100 pzs - 15.000$ </option>
+    <option value="200">200 pzs - 28.000$ </option>
+    <option value="300">300 pzs - 41.925$</option>
+    <option value="400">400 pzs - 55.900$</option>
+    <option value="500">500 pzs - 69.875$ </option>
+    <option value="600">600 pzs - 86.650$</option>
+    <!-- Puedes agregar más opciones según sea necesario -->
+  </select>
+</div>
+
+<div id="campoCantidadStickerIndividualesNormal7x7" class="form-group mt-3 hidden">
+  <h3>Seleccione la Cantidad:</h3>
+  <select id="cantidad7x7" class="form-select" onchange="mostrarCampoEnvio()">
+    <option value="opcion2">Elija una opcion</option>
+    <option value="50">50 pzs - 14.500$</option>
+    <option value="100">100 pzs - 23.500$ </option>
+    <option value="200">200 pzs - 40.530$ </option>
+    <option value="300">300 pzs - 68.478$</option>
+    <option value="400">400 pzs - 75.465$</option>
+    <option value="500">500 pzs - 97.825$ </option>
+    <option value="600">600 pzs - 117.390$</option>
+    <!-- Puedes agregar más opciones según sea necesario -->
+  </select>
+</div>
+
+<div id="campoCantidadStickerIndividualesNormal8x8" class="form-group mt-3 hidden">
+  <h3>Seleccione la Cantidad:</h3>
+  <select id="cantidad8x8" class="form-select" onchange="mostrarCampoEnvio()">
+    <option value="opcion2">Elija una opcion</option>
+    <option value="50">50 pzs - 17.900$</option>
+    <option value="100">100 pzs - 27.100$ </option>
+    <option value="200">200 pzs - 47.515$ </option>
+    <option value="300">300 pzs - 69.875$</option>
+    <option value="400">400 pzs - 95.030$</option>
+    <option value="500">500 pzs - 117.390$ </option>
+    <option value="600">600 pzs - 139.750$</option>
+    <!-- Puedes agregar más opciones según sea necesario -->
+  </select>
+</div>
+
+<div id="campoCantidadStickerIndividualesNormal9x9" class="form-group mt-3 hidden">
+  <h3>Seleccione la Cantidad:</h3>
+  <select id="cantidad9x9" class="form-select" onchange="mostrarCampoEnvio()">
+    <option value="opcion2">Elija una opcion</option>
+    <option value="50">50 pzs - 19.990$</option>
+    <option value="100">100 pzs - 27.950$ </option>
+    <option value="200">200 pzs - 55.900$ </option>
+    <option value="300">300 pzs - 83.850$</option>
+    <option value="400">400 pzs - 111.800$</option>
+    <option value="500">500 pzs - 139.750$ </option>
+    <option value="600">600 pzs - 167.700$</option>
+    <!-- Puedes agregar más opciones según sea necesario -->
+  </select>
+</div>

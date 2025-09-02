@@ -1,0 +1,180 @@
+
+body{
+    background-color: #FFFFFF;
+    padding-top: 100px;
+    margin: 0;
+    
+    
+}
+
+
+
+/** header e Index **/
+
+.navi{
+    background-color: #CCCCCC;
+}
+
+header{
+    font-family: "Argentum Sans";   
+    background-color: #CCCCCC;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    
+}
+
+.holo{
+    font-size: 60px;
+}
+
+.logo{
+    margin: auto;
+    width: 100%;
+}
+
+
+.carousel-item img {
+    width: 1118px; /* Ancho fijo */
+    height: 686px; /* Alto fijo */
+}
+
+
+a {
+    color: white; /* Puedes cambiar 'black' por el color que desees */
+    text-decoration: none; /* Opcional: quitar el subrayado de los enlaces */
+}
+
+
+
+
+/** pagina Materiales **/
+
+.galeria{
+    margin-top: 20px;
+    padding-top: 10px;
+    position: relative;
+}
+
+.scale {
+    transition: all 2s; }
+
+
+.scale:hover {
+        transform: scale(1.1); }
+
+
+.botoninfo{
+
+    text-align: center;
+}
+
+
+
+/** texts **/
+
+
+.fontlinks{
+    font-family: "Argentum Sans";
+    font-size: 20px;
+    color: #000000;
+}
+
+.cotizadorfont{
+    font-family: "Argentum Sans";
+    font-size: 20px;
+    color: white;
+
+}
+
+h2{
+    font-family: "Argentum Sans";
+    color: #000000;
+    text-align: center;
+}
+
+h3{
+    font-family: "Argentum Sans";
+    color: #000000;
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+    font-family: "Argentum Sans";
+}
+
+h5{
+    font-family: "Argentum Sans";
+    color: #000000;
+}
+
+
+p{
+    font-family: "Argentum Sans";
+    font-size: 20px;
+}
+
+
+.infofuente{
+    font-family: "Argentum Sans";
+}
+
+span{
+    font-family: "Argentum Sans";
+}
+
+
+.botonFooter{
+    width: 30px;
+    height: 30px;
+}
+
+
+
+/* Estilos para el contenido de la página */
+.contenido {
+    padding: 20px; /* Añade un relleno al contenido para separarlo del borde de la pantalla */
+}
+
+.mobile-image {
+    display: none; /* Ocultar la imagen móvil por defecto */
+  }
+
+
+
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Estilos específicos para pantallas más pequeñas */
+    header {
+        font-size: 16px; /* Reducir el tamaño de la fuente del encabezado para pantallas más pequeñas */
+    }
+    .carousel-item img {
+        max-width: 100%; /* Ajusta la imagen al ancho máximo de la pantalla en dispositivos móviles */
+        height: auto; /* Ajusta automáticamente la altura para mantener la proporción */
+    }
+    .botonFooter img {
+        width: 100%; /* ajusta el ancho del logo para dispositivos móviles */
+        height: auto; /* ajusta la altura del logo para dispositivos móviles */
+    }
+      /* Ajustar el tamaño de la fuente del texto dentro del div del footer para dispositivos móviles */
+    footer .text {
+        font-size: 10px;
+    }
+    .desktop-image {
+        display: none; /* Ocultar la imagen de escritorio en pantallas pequeñas */
+      }
+      .mobile-image {
+        display: block; /* Mostrar la imagen móvil en pantallas pequeñas */
+        margin: auto;
+        width: 100%;
+      }
+    }
+
+
+
+
+
